@@ -15,7 +15,8 @@ The integration system:
 - Performs 3D reconstruction of player movements
 - Provides a unified web interface for viewing results
 
-![Uploading image.png…]()
+<img width="1898" height="938" alt="image" src="https://github.com/user-attachments/assets/dfea6b67-0d7e-4062-9d6a-48405273f7c2" />
+
 
 
 ## Repository Structure
