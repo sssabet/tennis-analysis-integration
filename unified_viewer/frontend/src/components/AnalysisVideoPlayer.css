@@ -1,0 +1,156 @@
+.analysis-video-container {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.analysis-video-container.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.analysis-video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.analysis-video-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.video-description {
+  color: #aaa;
+  font-size: 0.9em;
+  margin: 5px 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn-toggle-expand {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.2s;
+}
+
+.btn-toggle-expand:hover {
+  background: #357abd;
+}
+
+.analysis-video-wrapper {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.analysis-video-container:not(.expanded) .analysis-video-wrapper {
+  max-height: 500px;
+}
+
+.analysis-video-container.expanded .analysis-video-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analysis-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+.analysis-video-container.expanded .analysis-video {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+}
+
+.analysis-video-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  color: #888;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.info-value {
+  color: #fff;
+  font-size: 0.9em;
+}
+
+.analysis-video-loading,
+.analysis-video-error {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.analysis-video-loading .spinner {
+  border: 3px solid #333;
+  border-top: 3px solid #4a90e2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.analysis-video-error {
+  color: #ff6b6b;
+}
+
+.analysis-video-error small {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  font-size: 0.85em;
+}
+
+

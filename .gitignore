@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Output directories
+unified_outputs/
+integrated_outputs/
+*.mp4
+*.jpg
+*.png
+*.glb
+*.json
+!package.json
+!package-lock.json
+
+# Dependency repositories (these are separate git repos)
+tennis_shot_homography_detection/
+tennis_single_player/
+
+# Node modules (for unified_viewer)
+unified_viewer/frontend/node_modules/
+unified_viewer/frontend/build/
+unified_viewer/frontend/.env.local
+unified_viewer/frontend/.env.development.local
+unified_viewer/frontend/.env.test.local
+unified_viewer/frontend/.env.production.local
+unified_viewer/frontend/npm-debug.log*
+unified_viewer/frontend/yarn-debug.log*
+unified_viewer/frontend/yarn-error.log*
+
+# Model weights (too large for git)
+*.pth
+*.pt
+*.onnx
+*.ckpt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+=0.1.1
+

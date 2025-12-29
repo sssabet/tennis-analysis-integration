@@ -1,0 +1,142 @@
+.shots-grid-container {
+  min-height: 400px;
+}
+
+.no-shots {
+  text-align: center;
+  padding: 4rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.no-shots p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.shots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.shot-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.shot-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(42, 82, 152, 0.3);
+}
+
+.shot-card-no-3d {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.shot-card-no-3d:hover {
+  transform: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shot-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.shot-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shot-3d-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(40, 167, 69, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.shot-info {
+  padding: 1.5rem;
+}
+
+.shot-info h3 {
+  margin: 0 0 1rem 0;
+  color: #1e3c72;
+  font-size: 1.4rem;
+}
+
+.shot-details {
+  margin-bottom: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row .label {
+  font-weight: 600;
+  color: #666;
+}
+
+.detail-row .value {
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-view-3d {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2a5298;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-view-3d:hover {
+  background: #1e3c72;
+}
+
+.no-3d-message {
+  text-align: center;
+  padding: 0.75rem;
+  background: #f8d7da;
+  color: #721c24;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .shots-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+
