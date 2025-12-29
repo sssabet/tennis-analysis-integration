@@ -6,14 +6,17 @@ A unified system that integrates shot detection with 3D player reconstruction fo
 
 This repository integrates two separate tennis analysis systems:
 
-1. **tennis_shot_homography_detection** - Detects shots using ball tracking, audio analysis, and homography-based court mapping
-2. **tennis_single_player** - Performs 3D reconstruction of player movements using SAM3D
+1. Detects shots using ball tracking, audio analysis, and homography-based court mapping  https://github.com/sssabet/tennis_analytics 
+2. Performs 3D reconstruction of player movements using SAM3D  https://github.com/sssabet/tennis_3d_reconstruction
 
 The integration system:
 - Automatically detects shots in tennis videos
 - Clips video segments around each detected shot
 - Performs 3D reconstruction of player movements
 - Provides a unified web interface for viewing results
+
+![Uploading image.png…]()
+
 
 ## Repository Structure
 
@@ -36,8 +39,8 @@ This repository depends on two other **separate git repositories** that should b
 ```
 sportai/
 ├── tennis-analysis-integration/     # This repo (you are here)
-├── tennis_shot_homography_detection/  # Shot detection system (separate repo)
-└── tennis_single_player/             # 3D reconstruction system (separate repo)
+├── tennis_shot_homography_detection/  # Shot detection system (separate repo) https://github.com/sssabet/tennis_analytics
+└── tennis_single_player/             # 3D reconstruction system (separate repo)  https://github.com/sssabet/tennis_3d_reconstruction
 ```
 
 **Important**: The `tennis_shot_homography_detection` and `tennis_single_player` directories are **NOT** included in this repository. They must be cloned separately as sibling directories.
@@ -57,8 +60,8 @@ Clone the two required repositories as siblings:
 
 ```bash
 cd ..
-git clone <tennis_shot_homography_detection-url>
-git clone <tennis_single_player-url>
+git clone https://github.com/sssabet/tennis_3d_reconstruction
+git clone https://github.com/sssabet/tennis_analytics
 cd tennis-analysis-integration
 ```
 
@@ -165,99 +168,6 @@ Then open http://localhost:8000
 - Interactive 3D viewer with WASD controls
 - Real-time processing status
 - Full analysis video playback
-
-## Output Structure
-
-```
-unified_outputs/
-├── {job_id}/
-│   ├── full_analysis.mp4          # Full video with overlays
-│   ├── processing_summary.json    # Overall summary
-│   ├── clips/
-│   │   ├── shot_001_clip.mp4     # Video clip for shot 1
-│   │   └── shot_001_clip.json     # Homography metadata
-│   └── shot_001/
-│       ├── meshes_3d/             # 3D reconstructions (GLB files)
-│       ├── swing_frames/          # Extracted frames
-│       ├── velocity_profile.png   # Velocity plot
-│       └── analysis_report.json   # Full analysis
-└── uploads/                        # Uploaded videos
-```
-
-## API Endpoints
-
-### Upload & Analysis
-- `POST /api/upload` - Upload video
-- `POST /api/analyze/{job_id}` - Start analysis
-- `GET /api/status/{job_id}` - Check progress
-- `GET /api/results/{job_id}` - Get complete results
-- `GET /api/results/{job_id}/full_video` - Get full analysis video
-
-### Shots
-- `GET /api/shots/{job_id}` - List all detected shots
-- `GET /api/shots/{job_id}/{shot_number}/thumbnail` - Get shot thumbnail
-- `GET /api/shots/{job_id}/{shot_number}/3d` - Get 3D reconstruction data
-- `GET /api/shots/{job_id}/{shot_number}/models/{filename}` - Download 3D model
-- `GET /api/shots/{job_id}/{shot_number}/velocity_plot` - Get velocity plot
-- `GET /api/shots/{job_id}/{shot_number}/frames/{frame_index}` - Get frame image
-
-## Development
-
-### Project Structure
-
-- `integrate_shot_to_3d.py` - Core integration logic
-- `unified_viewer/app.py` - FastAPI backend server
-- `unified_viewer/frontend/` - React frontend application
-
-### Code Style
-
-- Python: Follow PEP 8
-- JavaScript: Follow ESLint rules
-- Use type hints in Python where possible
-
-### Testing
-
-Run the integration script on a test video:
-
-```bash
-python integrate_shot_to_3d.py test_video.mp4 --clip-duration 1.0
-```
-
-## Troubleshooting
-
-**Import errors:**
-- Ensure both dependency repositories are cloned as siblings
-- Check that all dependencies are installed
-- Verify Python path includes both repos
-
-**No shots detected:**
-- Check video has clear ball visibility
-- Verify audio track exists
-- Ensure court is visible in video
-
-**3D reconstruction fails:**
-- Check player is clearly visible
-- Try increasing clip duration
-- Verify SAM3D models are installed
-
-**Video won't play in browser:**
-- Videos are automatically re-encoded with H.264 codec
-- Check browser console for errors
-- Ensure video file exists and is accessible
-
-## License
-
-This integration system combines components from:
-- Tennis shot detection system
-- Tennis 3D reconstruction system
-- FastAPI, React, Three.js (MIT/Apache licenses)
-
-## Contributing
-
-1. Ensure both dependency repositories are set up
-2. Test changes with sample videos
-3. Follow code style guidelines
-4. Update documentation as needed
 
 ## Credits
 
