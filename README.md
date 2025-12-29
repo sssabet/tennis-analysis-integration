@@ -19,20 +19,6 @@ The integration system:
 
 
 
-## Repository Structure
-
-```
-tennis-analysis-integration/
-├── integrate_shot_to_3d.py      # Core integration script
-├── unified_viewer/              # Web-based viewer application
-│   ├── app.py                   # FastAPI backend
-│   ├── frontend/                # React frontend
-│   └── start_backend.sh         # Backend startup script
-├── README.md                    # This file
-├── requirements.txt             # Python dependencies
-└── .gitignore                   # Git ignore rules
-```
-
 ## Dependencies
 
 This repository depends on two other **separate git repositories** that should be cloned as siblings:
@@ -148,31 +134,3 @@ python app.py
 ```
 
 Then open http://localhost:8000
-
-## Features
-
-### Shot Detection
-- Automatic shot detection using ball tracking + audio analysis
-- Homography-based court mapping
-- Ball trajectory visualization
-- Shot timing and frame information
-
-### 3D Reconstruction
-- Full 3D player body reconstruction for each shot
-- Frame-by-frame playback of movements
-- Velocity and acceleration analysis
-- Multi-person support
-
-### Web Interface
-- Upload tennis videos
-- View all detected shots in a grid
-- Interactive 3D viewer with WASD controls
-- Real-time processing status
-- Full analysis video playback
-
-## Credits
-
-- Shot detection: TrackNet, CourtSide, YOLOv8
-- 3D reconstruction: MediaPipe, SAM3D Body
-- Web framework: FastAPI, React, Three.js
-
